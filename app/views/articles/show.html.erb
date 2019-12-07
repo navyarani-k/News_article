@@ -1,0 +1,25 @@
+<h3><%= @article.headline %></h3>
+  <%= @article.friendly_id %>
+
+<p><%= @article.body %></p>
+  
+
+<h4><%= @article.conclusion%></h4>
+
+<h5><%= @article.summary%> </h5>
+
+<h3>Comments</h3>
+   <%= form_for @article do |comment| %>
+   
+	   <%= comment.text_area :comments %> <br>
+	   <%= comment.submit 'comment here' %>
+
+   <% end %>
+
+<hr>
+<% @article.comments.each do |comment| %>
+  <p> <%= comment.body %></p>
+<% end -%>
+ 
+ <%= link_to 'edit' , edit_article_path(@article) %> 
+ <%= link_to 'back' , articles_path %>

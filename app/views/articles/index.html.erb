@@ -1,0 +1,25 @@
+<%= link_to 'create article', new_article_path, class: 'btn btn-lg btn-primary' %> <br>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @articles.each do |article|%>
+
+        <tr>
+        <td><%= article.headline %></td>
+        <td>
+        	 <%= link_to 'show', article_path(article) %> | 
+        	 <%= link_to 'edit' , edit_article_path(article) %> |
+           <%= link_to  'delete', article_path(article) , method: :delete %>
+
+        </td>
+         
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  
